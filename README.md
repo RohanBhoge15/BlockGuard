@@ -51,6 +51,14 @@ A decentralized fraud detection system for blockchain transactions using Machine
 
 **Training dataset:** 4,200 transactions (3,000 normal + 1,200 fraud), 28.6% fraud rate
 
+**Why perfect scores?** The synthetic dataset uses **intentionally separated fraud patterns** (see [Fraud Patterns](#fraud-patterns) section):
+- Wash Trading: 80–200 ETH, high frequency, 85+ Gwei
+- Phishing: 0.0001–0.005 ETH dust, nonce 1–5, 110+ Gwei
+- Rug Pull: 200–1000 ETH drain, nonce 500+ sender → nonce 1 receiver
+- Normal: 0.1–50 ETH, established accounts, 25–40 Gwei
+
+These non-overlapping patterns enable perfect classification. **Real-world fraud detection typically achieves 85-95% accuracy** due to overlapping transaction characteristics.
+
 **Top features driving detection:**
 
 | Feature | Importance |
