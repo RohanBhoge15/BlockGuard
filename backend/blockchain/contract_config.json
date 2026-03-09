@@ -1,0 +1,6 @@
+{
+  "contract_address": "0xC09a8A6C3a0B54815dbe3B05F3172c82e7a93995",
+  "deployer": "0xEDfF4FCAB367c965720712b38106672e4FFd518c",
+  "chain_id": 1337,
+  "ganache_url": "http://127.0.0.1:8545"
+}

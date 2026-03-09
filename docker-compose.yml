@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: blockguard-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: blockguard
+    networks:
+      - blockguard-net
+
+  ganache:
+    image: trufflesuite/ganache:latest
+    container_name: blockguard-ganache
+    ports:
+      - "8545:8545"
+    command: >
+      --accounts 10
+      --defaultBalanceEther 1000
+      --networkId 1337
+      --chain.chainId 1337
+      --miner.blockGasLimit 12000000
+      --host 0.0.0.0
+    networks:
+      - blockguard-net
+
+volumes:
+  mongo_data:
+
+networks:
+  blockguard-net:
+    driver: bridge
